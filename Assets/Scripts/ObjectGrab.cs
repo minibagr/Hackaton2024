@@ -1,38 +1,69 @@
 using UnityEngine;
 
 public class ObjectGrab : MonoBehaviour {
-    [SerializeField] private float grabDistance = 5f;
-    [SerializeField] private Transform holdPoint;
-    [SerializeField] private GameObject grabbedObject;
+    public float grabDistance = 10f;
+    public float grabSmoothSpeed = 10f;
+    public float launchForce = 1000f;
+    public Transform holdPoint;
 
-    public void Update() {
+    private GameObject grabbedObject = null;
+    private Rigidbody grabbedRigidbody = null;
+
+    void Update() {
         if (grabbedObject != null) {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                ReleaseObject();
+            HoldObject();
+
+            if (Input.GetMouseButtonDown(0)) {
+                LaunchObject();
             }
-            grabbedObject.transform.position = holdPoint.position;
-            grabbedObject.transform.rotation = holdPoint.rotation;
-
-        } else if (Input.GetKeyDown(KeyCode.E)) TryGrabObject();
-    }
-
-    void TryGrabObject() {
-        RaycastHit hit;
-        Ray ray = new Ray(transform.position, transform.forward);
-
-        if (Physics.Raycast(ray, out hit, grabDistance)) {
-            if (hit.collider.GetComponent<Rigidbody>() != null) {
-                grabbedObject = hit.collider.gameObject;
-                grabbedObject.GetComponent<Rigidbody>().isKinematic = true;
+            else if (Input.GetMouseButtonDown(1)) {
+                DropObject();
+            }
+        } else {
+            if (Input.GetMouseButtonDown(0)) {
+                TryGrabObject();
             }
         }
     }
 
-    void ReleaseObject() {
+    private void TryGrabObject() {
+        Ray ray = new Ray(transform.position, transform.forward);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, grabDistance)) {
+            if (hit.collider.GetComponent<Rigidbody>() != null) {
+                grabbedObject = hit.collider.gameObject;
+                grabbedRigidbody = grabbedObject.GetComponent<Rigidbody>();
+
+                grabbedRigidbody.useGravity = false;
+                grabbedRigidbody.linearVelocity = Vector3.zero;
+                grabbedRigidbody.angularVelocity = Vector3.zero;
+            }
+        }
+    }
+
+    private void HoldObject() {
+        Vector3 directionToHold = holdPoint.position - grabbedObject.transform.position;
+        grabbedRigidbody.linearVelocity = directionToHold * grabSmoothSpeed;
+    }
+
+    private void DropObject() {
         if (grabbedObject != null) {
-            grabbedObject.GetComponent<Rigidbody>().isKinematic = false;
+            grabbedRigidbody.useGravity = true;
+
             grabbedObject = null;
+            grabbedRigidbody = null;
+        }
+    }
+
+    private void LaunchObject() {
+        if (grabbedObject != null) {
+            grabbedRigidbody.useGravity = true;
+
+            grabbedRigidbody.AddForce(transform.forward * launchForce, ForceMode.Impulse);
+
+            grabbedObject = null;
+            grabbedRigidbody = null;
         }
     }
 }
