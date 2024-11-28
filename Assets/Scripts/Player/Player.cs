@@ -142,7 +142,22 @@ public class Player : MonoBehaviour {
             invincibility = invincibility,
             health = health,
             mouseSensitivity = mouseSensitivity,
-            stamina = stamina
+            stamina = stamina,
+            clampAngle = clampAngle,
+            maxHealth = maxHealth,
+            playerDamage = playerDamage,
+            speed = speed,
+            maxStamina = maxStamina,
+            normalSpeed = normalSpeed, 
+            sprintSpeed = sprintSpeed, 
+            jumpHeigth = jumpHeigth, 
+            gravity = gravity,
+            staminaCooldownTimer = staminaCooldownTimer, 
+            staminaCooldownTime = staminaCooldownTime,
+            staminaRegenModifier = staminaRegenModifier, 
+            staminaUsageModifier = staminaUsageModifier,
+            canSprint = canSprint, 
+            isGrounded = isGrounded,
         };
     }
 
@@ -153,5 +168,20 @@ public class Player : MonoBehaviour {
         health = data.health;
         mouseSensitivity = data.mouseSensitivity;
         stamina = data.stamina;
+        clampAngle = data.clampAngle;
+        maxHealth = data.maxHealth;
+        playerDamage = data.playerDamage;
+        speed = data.speed;
+        maxStamina = data.maxStamina;
+        normalSpeed = data.normalSpeed;
+        sprintSpeed = data.sprintSpeed;
+        jumpHeigth = data.jumpHeigth;
+        gravity = data.gravity;
+        staminaCooldownTimer = data.staminaCooldownTimer;
+        staminaCooldownTime = data.staminaCooldownTime;
+        staminaRegenModifier = data.staminaRegenModifier; 
+        staminaUsageModifier = data.staminaUsageModifier;
+        canSprint = data.canSprint; 
+        isGrounded = data.isGrounded;
     }
 }

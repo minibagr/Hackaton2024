@@ -8,14 +8,23 @@ public class PlayerData
     public float health;
     public float mouseSensitivity;
     public float stamina;
+    public float clampAngle;
+    public float maxHealth;
+    public float playerDamage;
+    public float speed;
+    public float maxStamina;
+    public float normalSpeed, sprintSpeed, jumpHeigth, gravity;
+    public float staminaCooldownTimer, staminaCooldownTime;
+    public float staminaRegenModifier, staminaUsageModifier;
+    public bool canSprint, isGrounded;
 }
 
 [System.Serializable]
 public class DoorData
 {
     public bool isOpen;
-    public float rotationAngle = 90f;
-    public float rotationSpeed = 2f;
+    public float rotationAngle;
+    public float rotationSpeed;
 }
 
 [System.Serializable]

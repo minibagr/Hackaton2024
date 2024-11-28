@@ -24,12 +24,10 @@ public class Interaction : MonoBehaviour
         {
             if (pauseMenu.activeSelf)
             {
-                gameObject.GetComponent<Player>().enabled = true;
                 pauseMenu.GetComponent<PauseMenu>().Hide();
             }
             else
             {
-                gameObject.GetComponent<Player>().enabled = false;
                 pauseMenu.GetComponent<PauseMenu>().Show();
             }
         }
