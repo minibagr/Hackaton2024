@@ -28,6 +28,24 @@ public class DoorOpen : MonoBehaviour
     // Call this method to toggle the door state
     public void ToggleDoor()
     {
+        Dialog.PlayDialog("Door", "You successfully opened the door.", 5f);
         isOpen = !isOpen;
+    }
+
+    public DoorData SaveData()
+    {
+        return new DoorData
+        {
+            isOpen = isOpen,
+            rotationAngle = rotationAngle,
+            rotationSpeed = rotationSpeed
+        };
+    }
+
+    public void LoadData(DoorData doorData)
+    {
+        isOpen = doorData.isOpen;
+        rotationAngle = doorData.rotationAngle;
+        rotationSpeed = doorData.rotationSpeed;
     }
 }

@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 164527317}
   - component: {fileID: 164527316}
   - component: {fileID: 164527315}
+  - component: {fileID: 164527319}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Ground
@@ -228,6 +229,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &164527319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164527314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9223eaf9c5fd9b54485a7a9ed8a3b4f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canTake: 0
 --- !u!1 &1007564593
 GameObject:
   m_ObjectHideFlags: 0
@@ -360,6 +374,66 @@ PrefabInstance:
     - target: {fileID: 445862816194207444, guid: 11feb04363e04d74bb9feb569d27acba, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2485629883017079430, guid: 11feb04363e04d74bb9feb569d27acba, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2485629883017079430, guid: 11feb04363e04d74bb9feb569d27acba, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4573210765603872611, guid: 11feb04363e04d74bb9feb569d27acba, type: 3}
+      propertyPath: sprintSpeed
+      value: 7.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4573210765603872611, guid: 11feb04363e04d74bb9feb569d27acba, type: 3}
+      propertyPath: staminaCooldownTimer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4573210765603872611, guid: 11feb04363e04d74bb9feb569d27acba, type: 3}
+      propertyPath: staminaRegenModifier
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4573210765603872611, guid: 11feb04363e04d74bb9feb569d27acba, type: 3}
+      propertyPath: staminaUsageModifier
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4635759965665062560, guid: 11feb04363e04d74bb9feb569d27acba, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4635759965665062560, guid: 11feb04363e04d74bb9feb569d27acba, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014823345218309711, guid: 11feb04363e04d74bb9feb569d27acba, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014823345218309711, guid: 11feb04363e04d74bb9feb569d27acba, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014823345218309711, guid: 11feb04363e04d74bb9feb569d27acba, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5378099667929354112, guid: 11feb04363e04d74bb9feb569d27acba, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5378099667929354112, guid: 11feb04363e04d74bb9feb569d27acba, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5378099667929354112, guid: 11feb04363e04d74bb9feb569d27acba, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6598135839928133795, guid: 11feb04363e04d74bb9feb569d27acba, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 7432191846904405973, guid: 11feb04363e04d74bb9feb569d27acba, type: 3}
       propertyPath: m_LocalPosition.x
