@@ -1,0 +1,4 @@
+repository "Hackaton@fufik200612@cloud"
+  path "/"
+    br "/main"
+    co "/main"
