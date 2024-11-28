@@ -12,25 +12,20 @@ public class Interaction : MonoBehaviour
         playerCamera = Camera.main;
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
+    void Update() {
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            if (pauseMenu.activeSelf) {
+                pauseMenu.GetComponent<PauseMenu>().Hide();
+            } else {
+                pauseMenu.GetComponent<PauseMenu>().Show();
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.E)) {
             gameObject.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
             InteractWithKeypad();
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (pauseMenu.activeSelf)
-            {
-                pauseMenu.GetComponent<PauseMenu>().Hide();
-            }
-            else
-            {
-                pauseMenu.GetComponent<PauseMenu>().Show();
-            }
-        }
     }
 
     void InteractWithKeypad()
