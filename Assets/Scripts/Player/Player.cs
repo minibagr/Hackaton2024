@@ -49,6 +49,7 @@ public class Player : MonoBehaviour {
 
         Camera();
         Movement();
+        Crouch();
         UpdateUI();
     }
 
@@ -76,7 +77,6 @@ public class Player : MonoBehaviour {
     }
 
     /* --- | Movement | --- */
-
     private void Movement() {
         if (!canSprint) {
             staminaCooldownTimer -= Time.deltaTime;
@@ -119,8 +119,14 @@ public class Player : MonoBehaviour {
         rb.linearVelocity = velocity;
     }
 
-    /* --- | Update UI | --- */
+    /* --- | Crouch | --- */
 
+    private void Crouch() {
+        if (Input.GetKey(KeyCode.LeftControl)) transform.localScale = new Vector3(1, 0.5f, 1);
+        else transform.localScale = Vector3.one;
+    }
+
+    /* --- | Update UI | --- */
     private void UpdateUI() {
         staminaUISlider.value = stamina;
         healthUISlider.value = health;
