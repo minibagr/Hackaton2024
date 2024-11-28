@@ -80,6 +80,7 @@ public class Player : MonoBehaviour {
     private void Movement() {
         if (!canSprint) {
             staminaCooldownTimer -= Time.deltaTime;
+
             if (staminaCooldownTimer <= 0) {
                 staminaCooldownTimer = staminaCooldownTime;
                 canSprint = true;
@@ -88,12 +89,17 @@ public class Player : MonoBehaviour {
 
         if (canSprint && stamina > 0 && Input.GetKey(KeyCode.LeftShift) && moveDir.magnitude != 0) {
             stamina -= Time.deltaTime * staminaUsageModifier;
-            speed = sprintSpeed;
+
             if (stamina <= 0) canSprint = false;
+
+            speed = sprintSpeed;
+
         } else if (stamina < maxStamina) {
-            speed = normalSpeed;
             stamina += Time.deltaTime * staminaRegenModifier;
             if (stamina > maxStamina) stamina = maxStamina;
+
+            speed = normalSpeed;
+
         } else speed = normalSpeed;
 
         float x = Input.GetAxis("Horizontal");
@@ -134,10 +140,10 @@ public class Player : MonoBehaviour {
         if (collision.transform.tag == "Ground") isGrounded = false;
     }
 
-    public PlayerData SaveData()
-    {
-        return new PlayerData
-        {
+    /* --- | Saving And Loading | --- */
+
+    public PlayerData SaveData() {
+        return new PlayerData {
             playerPosition = transform.position,
             invincibility = invincibility,
             health = health,
@@ -161,8 +167,7 @@ public class Player : MonoBehaviour {
         };
     }
 
-    public void LoadData(PlayerData data)
-    {
+    public void LoadData(PlayerData data) {
         transform.position = data.playerPosition;
         invincibility = data.invincibility;
         health = data.health;

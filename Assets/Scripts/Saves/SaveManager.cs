@@ -26,7 +26,7 @@ public class SaveManager : MonoBehaviour
             doorData = doorData
         };
         
-        // // Convert the data to JSON format
+        // Convert the data to JSON format
         // string json = JsonUtility.ToJson(data, true); // Pretty print for readability
         //
         // // Write the JSON to a file
@@ -35,10 +35,10 @@ public class SaveManager : MonoBehaviour
         // Serialize critical data (encrypted)
         string criticalJson = JsonUtility.ToJson(data.playerData);
         string encryptedCriticalData = SaveEncryption.Encrypt(criticalJson, encryptionKey);
-
+        
         // Serialize editable data (plain text)
         string editableJson = JsonUtility.ToJson(data.doorData);
-
+        
         // Combine into a single file
         File.WriteAllText(saveFilePath, encryptedCriticalData + "|" + editableJson);
     }
@@ -58,11 +58,11 @@ public class SaveManager : MonoBehaviour
         string saveContent = File.ReadAllText(saveFilePath);
         string[] parts = saveContent.Split('|');
         if (parts.Length != 2) return;
-
+        
         // Decrypt critical data
         string decryptedCriticalData = SaveEncryption.Decrypt(parts[0], encryptionKey);
         PlayerData playerData = JsonUtility.FromJson<PlayerData>(decryptedCriticalData);
-
+        
         // Deserialize editable data
         DoorData doorData = JsonUtility.FromJson<DoorData>(parts[1]);
         
