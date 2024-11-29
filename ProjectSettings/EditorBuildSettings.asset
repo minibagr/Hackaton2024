@@ -6,14 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Ukladani.unity
-    guid: 937152991edfe954d96a46a19e132a1f
-  - enabled: 1
     path: Assets/Scenes/KubaPart.unity
     guid: 0646c036fbf0e124b897453a58b1b25a
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/Scenes/SaveFileFinal.unity
+    guid: b68f3ff00cd1a8342a7dd4388d3c35b7
+  - enabled: 1
+    path: Assets/Scenes/Third.unity
+    guid: c6457bfe4d0c67f4bae8aac51b8ffebf
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
