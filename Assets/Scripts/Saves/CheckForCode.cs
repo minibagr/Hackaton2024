@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CheckForCode : MonoBehaviour
 {
-    public String code = "1234";
+    public String code = "12345";
     public DoorOpen doorOpen;
     public GameObject player;
     private TMP_Text text;
@@ -28,18 +28,23 @@ public class CheckForCode : MonoBehaviour
         }
         else if (text.text.Length == 4)
         {
-            if (text.text == code)
-            {
-                doorOpen.ToggleDoor();
-                Hide();
-                solved = true;
-            }
-            else
-            {
-                canType = false;
-                Invoke(nameof(ResetText), 2f);
-                text.text = invalid;
-            }
+            canType = false;
+        }
+    }
+
+    public void Submit()
+    {
+        if (text.text == code)
+        {
+            doorOpen.ToggleDoor();
+            Hide();
+            solved = true;
+        }
+        else
+        {
+            canType = false;
+            Invoke(nameof(ResetText), 1f);
+            text.text = invalid;
         }
     }
 

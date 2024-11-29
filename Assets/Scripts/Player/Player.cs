@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
@@ -144,6 +145,17 @@ public class Player : MonoBehaviour {
         if (collision == null) return;
 
         if (collision.transform.tag == "Ground") isGrounded = false;
+    }
+
+    /* --- | Damage | --- */
+
+    public void UpdateHealth(float amount) {
+        health += amount;
+
+        if (health > maxHealth) health = maxHealth;
+        else if (health < 0f) {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 
     /* --- | Saving And Loading | --- */
